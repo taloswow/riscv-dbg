@@ -45,12 +45,14 @@ module dmi_cdc (
   cdc_2phase #(.T(dm::dmi_req_t)) i_cdc_req (
     .src_rst_ni  ( trst_ni          ),
     .src_clk_i   ( tck_i            ),
+    .src_clr_i   ( '0               ),
     .src_data_i  ( jtag_dmi_req_i   ),
     .src_valid_i ( jtag_dmi_valid_i ),
     .src_ready_o ( jtag_dmi_ready_o ),
 
     .dst_rst_ni  ( rst_ni           ),
     .dst_clk_i   ( clk_i            ),
+    .dst_clr_i   ( '0               ),
     .dst_data_o  ( core_dmi_req_o   ),
     .dst_valid_o ( core_dmi_valid_o ),
     .dst_ready_i ( core_dmi_ready_i )
@@ -59,12 +61,14 @@ module dmi_cdc (
   cdc_2phase #(.T(dm::dmi_resp_t)) i_cdc_resp (
     .src_rst_ni  ( rst_ni           ),
     .src_clk_i   ( clk_i            ),
+    .src_clk_i   ( '0               ),
     .src_data_i  ( core_dmi_resp_i  ),
     .src_valid_i ( core_dmi_valid_i ),
     .src_ready_o ( core_dmi_ready_o ),
 
     .dst_rst_ni  ( trst_ni          ),
     .dst_clk_i   ( tck_i            ),
+    .dst_clr_i   ( '0               ),
     .dst_data_o  ( jtag_dmi_resp_o  ),
     .dst_valid_o ( jtag_dmi_valid_o ),
     .dst_ready_i ( jtag_dmi_ready_i )
