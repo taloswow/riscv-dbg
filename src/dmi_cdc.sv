@@ -61,7 +61,7 @@ module dmi_cdc (
   cdc_2phase #(.T(dm::dmi_resp_t)) i_cdc_resp (
     .src_rst_ni  ( rst_ni           ),
     .src_clk_i   ( clk_i            ),
-    .src_clk_i   ( '0               ),
+    .src_clr_i   ( '0               ),
     .src_data_i  ( core_dmi_resp_i  ),
     .src_valid_i ( core_dmi_valid_i ),
     .src_ready_o ( core_dmi_ready_o ),
