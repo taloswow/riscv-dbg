@@ -562,6 +562,7 @@ module dm_csrs #(
   ) i_fifo (
     .clk_i            ( clk_i                ),
     .rst_ni           ( dmi_rst_ni           ), // reset only when system is re-set
+    .clr_i            ( 1'b0                 ),
     .flush_i          ( 1'b0                 ), // we do not need to flush this queue
     .testmode_i       ( testmode_i           ),
     .full_o           ( resp_queue_full      ),
